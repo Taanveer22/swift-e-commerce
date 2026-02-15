@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Swift E-commerce</title>
-    <!-- custom css -->
+    <!-- external css link-->
     <link rel="stylesheet" href="./style.css" />
     <!-- font awesome cdn -->
     <link
@@ -156,8 +156,9 @@
           </div>
         </div>
       </section>
+
       <!-- --------------------------------------------- -->
-      <!-- our products start -->
+      <!-- category btn start -->
       <!-- --------------------------------------------- -->
       <section class="mt-6 lg:mt-12 w-11/12 mx-auto">
         <h1 class="text-2xl lg:text-4xl font-bold text-center mb-4">
@@ -168,8 +169,20 @@
           class="flex flex-wrap gap-6 justify-center"
         ></div>
       </section>
+
+      <!-- --------------------------------------------- -->
+      <!-- products start -->
+      <!-- --------------------------------------------- -->
+      <section class="mt-6 lg:mt-12 w-11/12 mx-auto">
+        <div
+          id="products-container"
+          class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+        ></div>
+      </section>
+
     </main>
 
+    <!--external js file link -->
     <script src="./script.js"></script>
   </body>
 </html>
