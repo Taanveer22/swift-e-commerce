@@ -1,3 +1,10 @@
+// ===================== utility functions ====================
+function removeActiveClass() {
+  const allCategoryButtons = document.querySelectorAll(".shared-cat-btn");
+  // console.log(allCategoryButtons);
+  allCategoryButtons.forEach((btn) => btn.classList.remove("active"));
+}
+
 // ========================
 // === load function 01 ===
 // ========================
@@ -5,6 +12,7 @@ const loadCategories = async () => {
   const url1 = `https://fakestoreapi.com/products/categories`;
   const res = await fetch(url1);
   const data = await res.json();
+  console.log(data);
   displayCategories(data);
 };
 
@@ -15,6 +23,11 @@ const loadProducts = async (item) => {
   const url2 = `https://fakestoreapi.com/products/category/${item}`;
   const res = await fetch(url2);
   const data = await res.json();
+  // console.log(data);
+  removeActiveClass();
+  const clickedBtn = document.getElementById(`unique-cat-btn-${item}`);
+  // console.log(clickedBtn);
+  clickedBtn.classList.add("active");
   displayProducts(data);
 };
 
@@ -45,12 +58,14 @@ const displayCategories = (data) => {
     // console.log(item);
     // step 03
     const button = document.createElement("button");
-    button.classList.add("btn", "rounded-full");
+    button.id = `unique-cat-btn-${item}`;
+    button.classList.add("btn", "rounded-full", "shared-cat-btn");
     button.innerHTML = `
         <span>
             ${item}
         </span>
   `;
+    // console.log(button);
     // executes on click event listener function
     button.addEventListener("click", () => {
       loadProducts(item);
