@@ -1,3 +1,6 @@
+let allProducts = []; // stores all products
+let addedToCart = []; // stores products added to cart
+
 // ===================== utility functions ====================
 function removeActiveClass() {
   const allCategoryButtons = document.querySelectorAll(".shared-cat-btn");
@@ -15,11 +18,20 @@ function manageSpinner(status) {
   }
 }
 
-function updateCart(price) {
-  console.log(price);
+function updateCart(id) {
+  // console.log(id);
+  // console.log(typeof id);
+  // find full product object
+  const selectedProduct = allProducts.find(
+    (product) => product.id === Number(id),
+  );
+  console.log(selectedProduct);
+  // push the full product object inside addedToCart array
+  addedToCart.push(selectedProduct);
+  console.log("add to cart", addedToCart);
+  // update the navbar cart icon number
   const cartIcon = document.getElementById("cart-icon");
-  let count = Number(cartIcon.innerText);
-  cartIcon.innerText = count + 1;
+  cartIcon.innerText = addedToCart.length;
 }
 
 // ========================
@@ -108,6 +120,7 @@ const displayCategories = (data) => {
 // ========================================================
 const displayProducts = (items) => {
   // console.log(items);
+  allProducts = items; // save globally for lookup
   // step 01
   const productsContainer = document.getElementById("products-container");
   // stop safely
@@ -139,11 +152,11 @@ const displayProducts = (items) => {
               <p>${product?.title.slice(0, 25)}...</p>
               <h2 class="card-title">$ ${product?.price}</h2>
               <div class="card-actions justify-between">
-                <button onclick="loadCardDetails(${product?.id})" class="btn btn-sm">
+                <button onclick="loadCardDetails('${product?.title}',${product?.id})" class="btn btn-sm">
                   <i class="fa-regular fa-eye"></i>
                   <span>Details</span>
                 </button>
-                <button onclick="updateCart(${product?.price})" class="btn btn-sm btn-primary">
+                <button onclick="updateCart('${product?.id}')" class="btn btn-sm btn-primary">
                   <i class="fa-solid fa-cart-shopping"></i>
                   <span>Add</span>
                 </button>
@@ -151,6 +164,7 @@ const displayProducts = (items) => {
             </div>
           </div>
     `;
+
     // step 04
     productsContainer.append(div);
   });
