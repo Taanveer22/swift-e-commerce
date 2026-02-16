@@ -23,11 +23,12 @@
     <!-- tailwind css cdn -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   </head>
+
   <body class="inter-font">
+    <!-- --------------------------------------------- -->
+    <!-- navbar start -->
+    <!-- --------------------------------------------- -->
     <header>
-      <!-- --------------------------------------------- -->
-      <!-- navbar start -->
-      <!-- --------------------------------------------- -->
       <nav>
         <div class="navbar bg-base-200 shadow-sm">
           <div class="navbar-start">
@@ -54,8 +55,8 @@
               >
                 <li><a href="./index.html">Home</a></li>
                 <li><a href="./products.html">Products</a></li>
-                <li><a href="#about-section">About</a></li>
-                <li><a href="#contact-section">Contact</a></li>
+                <li><a href="#newsletter-section">About</a></li>
+                <li><a href="#newsletter-section">Contact</a></li>
               </ul>
             </div>
             <h1 class="btn btn-ghost text-xl text-primary">Swift Cart</h1>
@@ -64,8 +65,8 @@
             <ul class="menu menu-horizontal px-1">
               <li><a href="./index.html">Home</a></li>
               <li><a href="./products.html">Products</a></li>
-              <li><a href="#about-section">About</a></li>
-              <li><a href="#contact-section">Contact</a></li>
+              <li><a href="#newsletter-section">About</a></li>
+              <li><a href="#newsletter-section">Contact</a></li>
             </ul>
           </div>
           <div class="navbar-end">
@@ -75,92 +76,36 @@
           </div>
         </div>
       </nav>
-      <!-- --------------------------------------------- -->
-      <!-- banner start -->
-      <!-- --------------------------------------------- -->
-      <div
-        class="hero min-h-screen"
-        style="background-image: url(./assets/banner-image.png)"
-      >
-        <div class="hero-overlay"></div>
-        <div class="hero-content text-neutral-content">
-          <div class="max-w-md">
-            <h1 class="mb-5 text-3xl lg:text-5xl font-bold">
-              Best Collection For You
-            </h1>
-            <p class="mb-5">
-              Discover the latest trends in fashion, electronics and more. Shop
-              with confidence and style at Swift Cart.
-            </p>
-            <button class="btn btn-primary">Shop Now</button>
-          </div>
-        </div>
-      </div>
     </header>
 
     <main>
       <!-- --------------------------------------------- -->
-      <!-- why choose us start -->
+      <!-- category btn start -->
       <!-- --------------------------------------------- -->
-      <section id="about-section" class="mt-6 lg:mt-12 w-11/12 mx-auto">
+      <section class="mt-6 lg:mt-12 w-11/12 mx-auto">
         <h1 class="text-2xl lg:text-4xl font-bold text-center mb-4">
-          Why Choose Us
+          Our Products
         </h1>
-        <p class="text-sm lg:text-lg text-center opacity-70 mb-4">
-          We provide the best shopping experience with top-notch services.
-        </p>
-        <div class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
-          <div class="card bg-base-300 max-h-48">
-            <div class="card-body">
-              <div class="flex justify-start text-primary text-3xl">
-                <i class="fa-regular fa-truck"></i>
-              </div>
-              <h2 class="card-title">Fast Delivery</h2>
-              <p class="">
-                Get orders deliver to your doorstep quickly and efficiently
-              </p>
-            </div>
-          </div>
-          <div class="card bg-base-300 max-h-48">
-            <div class="card-body">
-              <div class="flex justify-start text-primary text-3xl">
-                <i class="fa-regular fa-headphones"></i>
-              </div>
-              <h2 class="card-title">24/7 Support</h2>
-              <p class="">
-                Our support team is available around the clock to assist you
-              </p>
-            </div>
-          </div>
-          <div class="card bg-base-300 max-h-48">
-            <div class="card-body">
-              <div class="flex justify-start text-primary text-3xl">
-                <i class="fa-solid fa-shield-halved"></i>
-              </div>
-              <h2 class="card-title">Secure Payment</h2>
-              <p class="">
-                Experience secure transactions with encrypted payment systems
-              </p>
-            </div>
-          </div>
-          <div class="card bg-base-300 max-h-48">
-            <div class="card-body">
-              <div class="flex justify-start text-primary text-3xl">
-                <i class="fa-solid fa-arrows-rotate"></i>
-              </div>
-              <h2 class="card-title">Easy Returns</h2>
-              <p class="">
-                Not satisfied? Return your products easily within 30 days
-              </p>
-            </div>
-          </div>
-        </div>
+        <div
+          id="category-btn-container"
+          class="flex flex-wrap gap-6 justify-center"
+        ></div>
+      </section>
+      <!-- --------------------------------------------- -->
+      <!-- products start -->
+      <!-- --------------------------------------------- -->
+      <section class="mt-6 lg:mt-12 w-11/12 mx-auto">
+        <div
+          id="products-container"
+          class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+        ></div>
       </section>
     </main>
+
     <!-- --------------------------------------------- -->
     <!-- newsletter start -->
     <!-- --------------------------------------------- -->
-    <section id="contact-section">
+    <section id="newsletter-section">
       <footer
         class="footer sm:footer-horizontal bg-blue-950 text-white px-10 py-10 mt-6 lg:mt-12"
       >
@@ -257,23 +202,6 @@
         </nav>
       </footer>
     </section>
-    <!-- ------------------------------------------ -->
-    <!-- modal  -->
-    <!-- ------------------------------------------ -->
-    <!-- Open the modal using ID.showModal() method -->
-    <!-- <button class="btn" onclick="details_modal.showModal()">open modal</button> -->
-    <dialog id="details_modal" class="modal modal-bottom sm:modal-middle">
-      <div class="modal-box">
-        <div id="modal-container" class="space-y-2"></div>
-        <div class="modal-action">
-          <form method="dialog">
-            <!-- if there is a button in form, it will close the modal -->
-            <button class="btn btn-error">Close</button>
-          </form>
-        </div>
-      </div>
-    </dialog>
-
     <!--external js file link -->
     <script src="./script.js"></script>
   </body>

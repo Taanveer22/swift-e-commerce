@@ -17,7 +17,7 @@ map() and forEach() both are js array methods . map() method returns something a
 `==` means loose equality . It checks only data value . `===` means strict equality . It checks both data type and data value .
 
 ### 4) What is the significance of `async`/`await` in fetching API data?
-`async`/`await` makes fetching api data easier by providing cleaner and readable syntax for asynchronous operations . It protects us from complex .then() .catch() type callback hell and simplified error handling via try{} and catch{} block.
+`async`/`await` makes fetching api data easier by providing cleaner and readable syntax for asynchronous operations . It protects us from  callback hell and simplified error handling . `async` returns a promise and `await` waits for a promise . This is their working mechanism .
 
 ### 5) Explain the concept of Scope in JavaScript (Global, Function, Block).
 
