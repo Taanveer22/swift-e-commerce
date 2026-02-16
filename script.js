@@ -15,6 +15,13 @@ function manageSpinner(status) {
   }
 }
 
+function updateCart(price) {
+  console.log(price);
+  const cartIcon = document.getElementById("cart-icon");
+  let count = Number(cartIcon.innerText);
+  cartIcon.innerText = count + 1;
+}
+
 // ========================
 // === load function 01 ===
 // ========================
@@ -136,7 +143,7 @@ const displayProducts = (items) => {
                   <i class="fa-regular fa-eye"></i>
                   <span>Details</span>
                 </button>
-                <button class="btn btn-sm btn-primary">
+                <button onclick="updateCart(${product?.price})" class="btn btn-sm btn-primary">
                   <i class="fa-solid fa-cart-shopping"></i>
                   <span>Add</span>
                 </button>
@@ -173,7 +180,7 @@ const displayCardDetails = (info) => {
     </p>
     <p> <span class="text-md font-medium">Rating : </span> 
         ${info?.rating.rate} *
-     </p>
+    </p>
     <button class="btn btn-primary">Buy Now</button>
   `;
   // show modal function
