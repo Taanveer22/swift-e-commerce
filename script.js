@@ -5,6 +5,16 @@ function removeActiveClass() {
   allCategoryButtons.forEach((btn) => btn.classList.remove("active"));
 }
 
+function manageSpinner(status) {
+  if (status === true) {
+    document.getElementById("loading-spinner").classList.remove("hidden");
+    document.getElementById("products-container").classList.add("hidden");
+  } else {
+    document.getElementById("loading-spinner").classList.add("hidden");
+    document.getElementById("products-container").classList.remove("hidden");
+  }
+}
+
 // ========================
 // === load function 01 ===
 // ========================
@@ -20,6 +30,8 @@ const loadCategories = async () => {
 // === load function 02 ===
 // ========================
 const loadProducts = async (item) => {
+  // loading spinner show before products loaded
+  manageSpinner(true);
   const url2 = `https://fakestoreapi.com/products/category/${item}`;
   const res = await fetch(url2);
   const data = await res.json();
@@ -135,6 +147,8 @@ const displayProducts = (items) => {
     // step 04
     productsContainer.append(div);
   });
+  // loading spinner hide after products displayed
+  manageSpinner(false);
 };
 
 // ========================================================
