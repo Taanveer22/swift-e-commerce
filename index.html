@@ -183,7 +183,9 @@
     <!-- --------------------------------------------- -->
     <!-- newsletter start -->
     <!-- --------------------------------------------- -->
-    <footer class="footer sm:footer-horizontal bg-blue-950 text-white px-10 py-10 mt-6 lg:mt-12">
+    <footer
+      class="footer sm:footer-horizontal bg-blue-950 text-white px-10 py-10 mt-6 lg:mt-12"
+    >
       <aside>
         <h1 class="text-2xl font-bold text-primary">Swift Cart</h1>
         <p>
@@ -225,12 +227,12 @@
         </fieldset>
       </form>
     </footer>
-    <hr class="border-t border-gray-400">
+    <hr class="border-t border-gray-400" />
     <footer
       class="footer sm:footer-horizontal bg-blue-950 text-white items-center px-10 py-5"
     >
       <aside class="grid-flow-col items-center">
-        <p>©2026 Swift Cart Inc. All rights reserved. </p>
+        <p>©2026 Swift Cart Inc. All rights reserved.</p>
       </aside>
       <nav class="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
         <a>
@@ -274,6 +276,22 @@
         </a>
       </nav>
     </footer>
+    <!-- ------------------------------------------ -->
+    <!-- modal  -->
+    <!-- ------------------------------------------ -->
+    <!-- Open the modal using ID.showModal() method -->
+    <!-- <button class="btn" onclick="details_modal.showModal()">open modal</button> -->
+    <dialog id="details_modal" class="modal modal-bottom sm:modal-middle">
+      <div class="modal-box">
+        <div id="modal-container" class="space-y-2"></div>
+        <div class="modal-action">
+          <form method="dialog">
+            <!-- if there is a button in form, it will close the modal -->
+            <button class="btn btn-error">Close</button>
+          </form>
+        </div>
+      </div>
+    </dialog>
 
     <!--external js file link -->
     <script src="./script.js"></script>

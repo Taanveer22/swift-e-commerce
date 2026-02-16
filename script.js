@@ -18,6 +18,17 @@ const loadProducts = async (item) => {
   displayProducts(data);
 };
 
+// ========================
+// === load function 03 ===
+// ========================
+const loadCardDetails = async (id) => {
+  // console.log(id);
+  const url3 = `https://fakestoreapi.com/products/${id}`;
+  const res = await fetch(url3);
+  const data = await res.json();
+  displayCardDetails(data);
+};
+
 // ========================================================
 // === display function 01 ================================
 // ========================================================
@@ -53,14 +64,14 @@ const displayCategories = (data) => {
 // === display function 02 ================================
 // ========================================================
 const displayProducts = (items) => {
-  console.log(items);
+  // console.log(items);
   // step 01
   const productsContainer = document.getElementById("products-container");
   productsContainer.innerHTML = "";
   // console.log(productsContainer);
   // step 02
   items.forEach((product) => {
-    console.log(product);
+    // console.log(product);
     // step 03
     const div = document.createElement("div");
     div.innerHTML = `
@@ -83,8 +94,9 @@ const displayProducts = (items) => {
               <p>${product?.title.slice(0, 25)}...</p>
               <h2 class="card-title">$ ${product?.price}</h2>
               <div class="card-actions justify-between">
-                <button class="btn btn-sm">
-                  <i class="fa-regular fa-eye"></i><span>Details</span>
+                <button onclick="loadCardDetails(${product?.id})" class="btn btn-sm">
+                  <i class="fa-regular fa-eye"></i>
+                  <span>Details</span>
                 </button>
                 <button class="btn btn-sm btn-primary">
                   <i class="fa-solid fa-cart-shopping"></i>
@@ -96,6 +108,34 @@ const displayProducts = (items) => {
     `;
     productsContainer.append(div);
   });
+};
+
+// ========================================================
+// === display function 03 ================================
+// ========================================================
+const displayCardDetails = (info) => {
+  // console.log(info);
+  // step 01
+  const modalContainer = document.getElementById("modal-container");
+  // console.log(modalContainer);
+  // step 02
+  modalContainer.innerHTML = `
+    <h1 class="text-xl"> <span class="font-semibold">Title : </span>
+        ${info?.title}
+    </h1>
+    <p> <span class="text-md font-medium">Description : </span>
+        ${info?.description}
+    </p>
+    <p> <span class="text-md font-medium">Price : </span>
+        ${info?.price} $
+    </p>
+    <p> <span class="text-md font-medium">Rating : </span> 
+        ${info?.rating.rate} *
+     </p>
+    <button class="btn btn-primary">Buy Now</button>
+  `;
+  // show modal function
+  document.getElementById("details_modal").showModal();
 };
 
 // === load function invoke ===
