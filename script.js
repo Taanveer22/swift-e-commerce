@@ -25,13 +25,20 @@ function updateCart(id) {
   const selectedProduct = allProducts.find(
     (product) => product.id === Number(id),
   );
-  console.log(selectedProduct);
+  // console.log(selectedProduct);
   // push the full product object inside addedToCart array
   addedToCart.push(selectedProduct);
-  console.log("add to cart", addedToCart);
+  // console.log("add to cart", addedToCart);
   // update the navbar cart icon number
   const cartIcon = document.getElementById("cart-icon");
   cartIcon.innerText = addedToCart.length;
+  // after successfully added product to the navbar cart
+  Swal.fire({
+    title: "Success!",
+    text: "Product added to cart successfully.",
+    icon: "success",
+    confirmButtonText: "Done",
+  });
 }
 
 // ========================
@@ -152,11 +159,11 @@ const displayProducts = (items) => {
               <p>${product?.title.slice(0, 25)}...</p>
               <h2 class="card-title">$ ${product?.price}</h2>
               <div class="card-actions justify-between">
-                <button onclick="loadCardDetails('${product?.title}',${product?.id})" class="btn btn-sm">
+                <button onclick="loadCardDetails(${product?.id})" class="btn btn-sm">
                   <i class="fa-regular fa-eye"></i>
                   <span>Details</span>
                 </button>
-                <button onclick="updateCart('${product?.id}')" class="btn btn-sm btn-primary">
+                <button onclick="updateCart(${product?.id})" class="btn btn-sm btn-primary">
                   <i class="fa-solid fa-cart-shopping"></i>
                   <span>Add</span>
                 </button>
