@@ -159,7 +159,7 @@ const displayProducts = (items) => {
               <p>${product?.title.slice(0, 25)}...</p>
               <h2 class="card-title">$ ${product?.price}</h2>
               <div class="card-actions justify-between">
-                <button onclick="loadCardDetails(${product?.id})" class="btn btn-sm">
+                <button onclick="loadCardDetails(${product?.id})" class="btn btn-sm btn-primary">
                   <i class="fa-regular fa-eye"></i>
                   <span>Details</span>
                 </button>
@@ -241,7 +241,7 @@ const displayAllStocks = (data) => {
               <p>${product?.title.slice(0, 25)}...</p>
               <h2 class="card-title">$ ${product?.price}</h2>
               <div class="card-actions justify-between">
-                <button onclick="loadCardDetails(${product?.id})" class="btn btn-sm">
+                <button onclick="loadCardDetails(${product?.id})" class="btn btn-sm btn-primary">
                   <i class="fa-regular fa-eye"></i>
                   <span>Details</span>
                 </button>
